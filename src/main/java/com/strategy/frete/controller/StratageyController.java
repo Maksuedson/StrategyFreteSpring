@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.strategy.frete.exception.TransportadoraNaoEncontrada;
 import com.strategy.frete.interfaces.Transportadora;
 
 @RestController
@@ -26,6 +27,6 @@ public class StratageyController {
 			return transportadoraImpl.calcularFrete();
 		}
 		
-		throw new RuntimeException("Transportadora não encontrada.");
+		throw new TransportadoraNaoEncontrada("Transportadora não encontrada.");
 	}
 }
